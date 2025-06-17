@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-import path from 'path';
-
 import axios from 'axios';
 import { logger } from '../utils/logger';
 import { SearchResponse } from '../types/search.types';
@@ -11,9 +8,6 @@ export class ClaudeService {
   private readonly apiUrl: string;
 
   constructor() {
-    // Load environment variables from the project root .env file
-    dotenv.config({ path: path.resolve(process.cwd(), '.env') });
-
     this.apiKey = process.env.OPENROUTER_API_KEY || '';
     this.apiUrl = process.env.OPENROUTER_API_URL || 'https://openrouter.ai/api/v1/chat/completions';
 
